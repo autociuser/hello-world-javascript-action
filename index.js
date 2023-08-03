@@ -8,6 +8,9 @@ try {
   // const nameToGreet = core.getInput('who-to-greet');
   // console.log(`Hello ${nameToGreet}!`);
 
+  const pwd = execSync(`pwd`).toString().trim();
+  console.log(`PWD ${pwd}`);
+
   const sha = execSync(`git rev-parse HEAD`).toString().trim();
   console.log(`Sha ${sha}`);
 

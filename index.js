@@ -14,6 +14,10 @@ try {
   const ls = execSync(`ls -al`).toString().trim();
   console.log(`LS ${ls}`);
 
+  const remote = execSync(`git remote -v`).toString().trim();
+  console.log(`Remote ${remote}`);
+
+
   const sha = execSync(`git rev-parse HEAD`).toString().trim();
   console.log(`Sha ${sha}`);
 

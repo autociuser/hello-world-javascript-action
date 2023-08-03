@@ -1,0 +1,9 @@
+name: drone-github-action
+"on": custom
+jobs:
+  action:
+    name: action
+    runs-on: -self-hosted
+    steps:
+    - id: stepId
+      uses: raghavharness/hello-world-javascript-action@main

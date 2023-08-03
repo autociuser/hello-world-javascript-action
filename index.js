@@ -11,6 +11,8 @@ try {
   const pwd = execSync(`pwd`).toString().trim();
   console.log(`PWD ${pwd}`);
 
+  execSync(`cd /harness`)
+
   const ls = execSync(`ls -al`).toString().trim();
   console.log(`LS ${ls}`);
 

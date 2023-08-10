@@ -1,13 +1,16 @@
 name: 'Hello World'
-description: 'Greet someone and record the time'
+description: 'Greet someone'
 inputs:
   who-to-greet:  # id of input
     description: 'Who to greet'
     required: true
     default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
 runs:
-  using: 'node16'
-  main: 'index.js'
+  using: "composite"
+  steps:
+    - run: echo Hello ${{ inputs.who-to-greet }}.
+      shell: bash
+    - run: echo "${{ github.action_path }}" >> $GITHUB_PATH
+      shell: bash
+    - run: cat workflow.yml
+      shell: bash

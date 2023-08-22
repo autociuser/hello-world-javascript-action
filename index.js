@@ -16,7 +16,7 @@ try {
   assertCoreEqual('ref_type', "branch")
   assertNotEmpty(process.env.RUNNER_ARCH, "RUNNER_ARCH")
   assertNotEmpty(process.env.RUNNER_OS, "RUNNER_OS")
-  assertCoreEqual(process.env.RUNNER_NAME, "HARNESS HOSTED")
+  assertEqual(process.env.RUNNER_NAME, "HARNESS HOSTED")
   assertNotEmpty(process.env.RUNNER_TOOL_CACHE, "RUNNER_TOOL_CACHE")
   const runner_tool_cache = process.env.RUNNER_TOOL_CACHE
   const os = process.env.RUNNER_OS

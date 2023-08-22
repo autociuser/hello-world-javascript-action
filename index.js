@@ -41,12 +41,16 @@ try {
 
   const OS = core.getInput('os');
   console.log(`OS: ${OS}!`);
+  console.log(`OS: ${process.env.RUNNER_OS}!`);
 
   const runner_name = core.getInput('runner_name');
   console.log(`Runner Name: ${runner_name}!`);
+  console.log(`Runner Name: ${process.env.RUNNER_NAME}!`);
 
   const runner_tool_cache = core.getInput('runner_tool_cache');
   console.log(`Runner Tool Cache: ${runner_tool_cache}!`);
+  console.log(`Runner Tool Cache: ${process.env.RUNNER_TOOL_CACHE}!`);
+
 
 } catch (error) {
   core.setFailed(error.message);

@@ -27,7 +27,7 @@ try {
     assertCoreEqual('workspace', "/harness")
   } else if (os === "Windows") {
     assertEqual(runner_tool_cache, "C:\\hostedtoolcache\\windows")
-    assertCoreEqual('workspace', "c:\harness")
+    assertCoreEqual('workspace', "c:\\harness")
   }
 } catch (error) {
   core.setFailed(error.message);

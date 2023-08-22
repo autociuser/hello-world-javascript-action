@@ -5,8 +5,8 @@ import { execSync } from 'child_process';
 
 try {
   // `who-to-greet` input defined in action metadata file
-  // const nameToGreet = core.getInput('who-to-greet');
-  // console.log(`Hello ${nameToGreet}!`);
+  const repository = core.getInput('repository');
+  console.log(`Repo: ${repository}!`);
 
   const pwd = execSync(`pwd`).toString().trim();
   console.log(`PWD ${pwd}`);

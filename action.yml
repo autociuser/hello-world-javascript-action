@@ -5,6 +5,24 @@ inputs:
     default: ${{ github.repository }}
   repository_owner:
     default: ${{ github.repository_owner }}
+  ref:
+    default: ${{ github.ref }}
+  base_ref:
+    default: ${{ github.base_ref }}
+  head_ref:
+    default: ${{ github.head_ref }}
+  sha:
+    default: ${{ github.sha }}
+  run_number:
+    default: ${{ github.run_number }}
+  run_attempt:
+    default: ${{ github.run_attempt }}
+  workspace:
+    default: ${{ github.workspace	}}
+  ref_name:
+    default: ${{ github.ref_name }}
+  ref_type:
+    default: ${{ github.ref_type }}
 runs:
   using: 'node16'
   main: 'index.js'

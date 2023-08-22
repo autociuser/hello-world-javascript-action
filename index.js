@@ -11,15 +11,15 @@ try {
   const pwd = execSync(`pwd`).toString().trim();
   console.log(`PWD ${pwd}`);
 
-  const ls = execSync(`ls -al`).toString().trim();
-  console.log(`LS ${ls}`);
+  // const ls = execSync(`ls -al`).toString().trim();
+  // console.log(`LS ${ls}`);
 
-  const remote = execSync(`git remote -v`).toString().trim();
-  console.log(`Remote ${remote}`);
+  // const remote = execSync(`git remote -v`).toString().trim();
+  // console.log(`Remote ${remote}`);
 
 
-  const sha = execSync(`git rev-parse HEAD`).toString().trim();
-  console.log(`Sha ${sha}`);
+  // const sha = execSync(`git rev-parse HEAD`).toString().trim();
+  // console.log(`Sha ${sha}`);
 
   // const time = (new Date()).toTimeString();
   // core.setOutput("time", time);

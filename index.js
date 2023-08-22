@@ -24,7 +24,7 @@ try {
     assertCoreEqual('workspace', "/harness")
   } else if (os === "macOS") {
     assertEqual(runner_tool_cache, "/Users/anka/hostedtoolcache")
-    assertCoreEqual('workspace', "/harness")
+    assertCoreEqual('workspace', "/private/tmp/harness")
   } else if (os === "Windows") {
     assertEqual(runner_tool_cache, "C:\\hostedtoolcache\\windows")
     assertCoreEqual('workspace', "c:\\harness")

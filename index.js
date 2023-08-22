@@ -1,6 +1,6 @@
 import { execSync } from 'child_process';
 
-// const core = require('@actions/core');
+const core = require('@actions/core');
 // const github = require('@actions/github');
 
 try {

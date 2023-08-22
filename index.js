@@ -1,15 +1,15 @@
-// import { execSync } from 'child_process';
+import { execSync } from 'child_process';
 
-const core = require('@actions/core');
+// const core = require('@actions/core');
 // const github = require('@actions/github');
 
 try {
   // `who-to-greet` input defined in action metadata file
-  const repository = core.getInput('repository');
-  console.log(`Repo: ${repository}!`);
+  // const repository = core.getInput('repository');
+  // console.log(`Repo: ${repository}!`);
 
-  // const pwd = execSync(`pwd`).toString().trim();
-  // console.log(`PWD ${pwd}`);
+  const gr = execSync(`echo $GITHUB_REPOSITORY`).toString().trim();
+  console.log(`Github Repo: ${gr}`);
 
   // const ls = execSync(`ls -al`).toString().trim();
   // console.log(`LS ${ls}`);

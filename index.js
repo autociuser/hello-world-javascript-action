@@ -11,7 +11,6 @@ try {
   assertNotEmpty('sha', "sha")
   assertNotEmpty('run_number', "run_number")
   assertNotEmpty('run_attempt', "run_attempt")
-  assertCoreEqual('workspace', "/harness")
   assertCoreEqual('ref_name', "main")
   assertCoreEqual('ref_type', "branch")
   assertNotEmpty(process.env.RUNNER_ARCH, "RUNNER_ARCH")
@@ -22,10 +21,13 @@ try {
   const os = process.env.RUNNER_OS
   if (os === "Linux") {
     assertEqual(runner_tool_cache, "/opt/hostedtoolcache")
+    assertCoreEqual('workspace', "/harness")
   } else if (os === "macOS") {
     assertEqual(runner_tool_cache, "/Users/anka/hostedtoolcache")
+    assertCoreEqual('workspace', "/harness")
   } else if (os === "Windows") {
     assertEqual(runner_tool_cache, "C:\hostedtoolcache\windows")
+    assertCoreEqual('workspace', "c:\harness")
   }
 } catch (error) {
   core.setFailed(error.message);

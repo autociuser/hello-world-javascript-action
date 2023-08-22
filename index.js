@@ -45,6 +45,7 @@ function assertEqual(actual, expected) {
 }
 
 function assertNotEmpty(value, name) {
+  console.log(`Name: ${name}, Value: ${value}`);
   if (value == null || value === "") {  
     throw new Error(`${name} is empty or undefined`);
   }

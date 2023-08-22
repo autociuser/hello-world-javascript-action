@@ -23,6 +23,14 @@ inputs:
     default: ${{ github.ref_name }}
   ref_type:
     default: ${{ github.ref_type }}
+  arch:
+    default: ${{ runner.arch }}
+  os:
+    default: ${{ runner.os }}
+  runner_name:
+    default: ${{ runner.name }}
+  runner_tool_cache:
+    default: ${{ runner.tool_cache	 }}
 runs:
   using: 'node16'
   main: 'index.js'

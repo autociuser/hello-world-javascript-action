@@ -3,6 +3,8 @@ description: 'Greet someone'
 inputs:
   repository:
     default: ${{ github.repository }}
+  repository_owner:
+    default: ${{ github.repository_owner }}
 runs:
   using: 'node16'
   main: 'index.js'

@@ -32,6 +32,7 @@ try {
 }
 
 function assertCoreEqual(actual, expected) {
+  console.log(`Actual: ${actual}, Expected: ${expected}`);
   if (core.getInput(actual) !== expected) {
     throw new Error(`Assertion failed for ${actual} : Expected ${expected}, but got ${core.getInput(actual)}`);
   }

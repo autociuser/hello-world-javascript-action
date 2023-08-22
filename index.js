@@ -3,55 +3,48 @@
 const core = require('@actions/core');
 
 try {
-  const repository = core.getInput('repository');
-  console.log(`Repo: ${repository}!`);
-
-  const repository_owner = core.getInput('repository_owner');
-  console.log(`Repo Owner: ${repository_owner}!`);
-
-  const ref = core.getInput('ref');
-  console.log(`Ref: ${ref}!`);
-
-  const base_ref = core.getInput('base_ref');
-  console.log(`Base Ref: ${base_ref}!`);
-
-  const head_ref = core.getInput('head_ref');
-  console.log(`Head Ref: ${head_ref}!`);
-
-  const sha = core.getInput('sha');
-  console.log(`Sha: ${sha}!`);
-
-  const run_number = core.getInput('run_number');
-  console.log(`Run number: ${run_number}!`);
-
-  const run_attempt = core.getInput('run_attempt');
-  console.log(`Run attempt: ${run_attempt}!`);
-
-  const workspace = core.getInput('workspace');
-  console.log(`Workspace: ${workspace}!`);
-
-  const ref_name = core.getInput('ref_name');
-  console.log(`Ref Name: ${ref_name}!`);
-
-  const ref_type = core.getInput('ref_type');
-  console.log(`Ref type: ${ref_type}!`);
-
-  const arch = core.getInput('arch');
-  console.log(`Arch: ${arch}!`);
-
-  const OS = core.getInput('os');
-  console.log(`OS: ${OS}!`);
-  console.log(`OS: ${process.env.RUNNER_OS}!`);
-
-  const runner_name = core.getInput('runner_name');
-  console.log(`Runner Name: ${runner_name}!`);
-  console.log(`Runner Name: ${process.env.RUNNER_NAME}!`);
-
-  const runner_tool_cache = core.getInput('runner_tool_cache');
-  console.log(`Runner Tool Cache: ${runner_tool_cache}!`);
-  console.log(`Runner Tool Cache: ${process.env.RUNNER_TOOL_CACHE}!`);
-
-
+  assertCoreEqual('repository', "autociuser/hello-world-javascript-action")
+  assertCoreEqual('repository_owner', "autociuser")
+  assertCoreEqual('ref', "refs/heads/main")
+  assertCoreEqual('base_ref', "main")
+  assertCoreEqual('head_ref', "main")
+  assertNotEmpty('sha', "sha")
+  assertNotEmpty('run_number', "run_number")
+  assertNotEmpty('run_attempt', "run_attempt")
+  assertCoreEqual('workspace', "/harness")
+  assertCoreEqual('ref_name', "main")
+  assertCoreEqual('ref_type', "branch")
+  assertNotEmpty(process.env.RUNNER_ARCH, "RUNNER_ARCH")
+  assertNotEmpty(process.env.RUNNER_OS, "RUNNER_OS")
+  assertCoreEqual(process.env.RUNNER_NAME, "HARNESS HOSTED")
+  assertNotEmpty(process.env.RUNNER_TOOL_CACHE, "RUNNER_TOOL_CACHE")
+  const runner_tool_cache = process.env.RUNNER_TOOL_CACHE
+  const os = process.env.RUNNER_OS
+  if (os === "Linux") {
+    assertEqual(runner_tool_cache, "/opt/hostedtoolcache")
+  } else if (os === "macOS") {
+    assertEqual(runner_tool_cache, "/Users/anka/hostedtoolcache")
+  } else if (os === "Windows") {
+    assertEqual(runner_tool_cache, "C:\hostedtoolcache\windows")
+  }
 } catch (error) {
   core.setFailed(error.message);
+}
+
+function assertCoreEqual(actual, expected) {
+  if (core.getInput(actual) !== expected) {
+    throw new Error(`Assertion failed for ${actual}: Expected ${expected}, but got ${core.getInput(actual)}`);
+  }
+}
+
+function assertEqual(actual, expected) {
+  if (actual !== expected) {
+    throw new Error(`Assertion failed : Expected ${expected}, but got ${actual}`);
+  }
+}
+
+function assertNotEmpty(value, name) {
+  if (value == null || value === "") {  
+    throw new Error(`${name} is empty or undefined`);
+  }
 }

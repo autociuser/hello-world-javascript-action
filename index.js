@@ -26,7 +26,7 @@ try {
     assertEqual(runner_tool_cache, "/Users/anka/hostedtoolcache")
     assertCoreEqual('workspace', "/harness")
   } else if (os === "Windows") {
-    assertEqual(runner_tool_cache, "C:\hostedtoolcache\windows")
+    assertEqual(runner_tool_cache, "C:\\hostedtoolcache\\windows")
     assertCoreEqual('workspace', "c:\harness")
   }
 } catch (error) {

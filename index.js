@@ -7,6 +7,10 @@ try {
   const repository = core.getInput('repository');
   console.log(`Repo: ${repository}!`);
 
+  const repository_owner = core.getInput('repository_owner');
+  console.log(`Repo Owner: ${repository_owner}!`);
+
+
   // const gr = execSync(`echo $GITHUB_REPOSITORY`).toString().trim();
   // console.log(`Github Repo: ${gr}`);
 

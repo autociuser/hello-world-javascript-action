@@ -1,4 +1,4 @@
-import { execSync } from 'child_process';
+// import { execSync } from 'child_process';
 
 const core = require('@actions/core');
 // const github = require('@actions/github');
@@ -8,8 +8,8 @@ try {
   const repository = core.getInput('repository');
   console.log(`Repo: ${repository}!`);
 
-  const pwd = execSync(`pwd`).toString().trim();
-  console.log(`PWD ${pwd}`);
+  // const pwd = execSync(`pwd`).toString().trim();
+  // console.log(`PWD ${pwd}`);
 
   // const ls = execSync(`ls -al`).toString().trim();
   // console.log(`LS ${ls}`);
